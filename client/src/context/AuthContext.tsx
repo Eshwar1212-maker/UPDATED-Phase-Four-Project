@@ -19,11 +19,6 @@ export const useUser = () => {
   return useContext(UserContext);
 };
 
-const context = useContext(UserContext);
-if (!context) {
-  throw new Error("useUser must be used within a UserProvider");
-}
-
 interface UserProviderProps {
   children: ReactNode;
 }

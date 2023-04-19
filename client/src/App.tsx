@@ -5,6 +5,7 @@ import { Register } from "./pages/Register";
 import { Profile } from "./pages/Profile";
 import { BuyTracks } from "./pages/BuyTracks";
 import { SellTracks } from "./pages/SellTRacks";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/buytracks" element={<BuyTracks />} />
-          <Route path="/selltracks" element={<SellTracks />} />
+          <Route path="/buytracks" element={<ProtectedRoute />} />
+          <Route path="/selltracks" element={<ProtectedRoute />} />
         </Routes>
       </Router>
     </div>

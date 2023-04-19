@@ -9,7 +9,7 @@ console.log(token);
 export const Register = () => {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { user, setUser, logOut } = useUser();
+  const { user, setUser, logout } = useUser();
 
   const navigate = useNavigate();
   useEffect(() => {}, []);
@@ -56,7 +56,7 @@ export const Register = () => {
           <div className="w-[300px] text-center text-4xl">
             You are logged in with this username{}
             <span className="w-[100px]">{user.username}</span>
-            <button onClick={logOut}>Log Out</button>
+            <button onClick={logout}>Log Out</button>
           </div>
         </div>
       ) : (
