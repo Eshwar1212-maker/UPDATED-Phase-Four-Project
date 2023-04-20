@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import background from "../assets/background.mp4";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/AuthContext";
-4;
+
 import Community from "../components/HomeOne";
 
 export const Home = () => {
@@ -60,7 +60,10 @@ export const Home = () => {
           <div></div>
         </div>
       </div>
-      <Community />
+      <Community
+        button="Register"
+        description="Let us help you express your talents"
+      />
     </div>
   );
 };

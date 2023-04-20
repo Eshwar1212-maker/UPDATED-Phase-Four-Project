@@ -25,8 +25,6 @@ class User(db.Model, SerializerMixin):
     user_requests = db.relationship('Request', backref='request_user')
     tracks = db.relationship('Track', secondary='requests', backref='users',
     primaryjoin='and_(User.user_id==Request.user_id, Request.track_id==Track.track_id)')
-    
-                             
 class Track(db.Model, SerializerMixin):
     __tablename__="tracks"
     serialize_rules = ('-users.date_created', '-requests.date_created')
