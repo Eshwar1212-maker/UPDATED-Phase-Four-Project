@@ -4,10 +4,12 @@ import { Navbar } from "./components/Navbar";
 import { Register } from "./pages/Register";
 import { Profile } from "./pages/Profile";
 import { BuyTracks } from "./pages/BuyTracks";
-import { SellTracks } from "./pages/SellTRacks";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useUser } from "./context/AuthContext";
+import { SellTracks } from "./pages/SellTRacks";
 
 function App() {
+  const { user } = useUser();
   return (
     <div className="">
       <Router>
@@ -15,8 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/buytracks" element={<ProtectedRoute />} />
-          <Route path="/selltracks" element={<ProtectedRoute />} />
+          {user.token && <Route path="/selltracks" element={<SellTracks />} />}
+          {user.token && <Route path="/buytracks" element={<BuyTracks />} />}
         </Routes>
       </Router>
     </div>

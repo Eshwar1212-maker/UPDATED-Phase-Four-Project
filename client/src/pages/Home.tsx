@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import background from "../assets/background.mp4";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/AuthContext";
+4;
+import Community from "../components/HomeOne";
 
 export const Home = () => {
   const [userName, setUserName] = useState<string>("");
@@ -11,6 +14,7 @@ export const Home = () => {
 
   const logOut = async () => {};
 
+  const { user } = useUser();
   useEffect(() => {}, []);
 
   return (
@@ -35,14 +39,16 @@ export const Home = () => {
           </p>
           <div className="flex justify-center gap-5">
             <div className="">
-              <button
-                onClick={logOut}
-                className="text-white text-xl bg-slate-600 w-[100px] rounded-xl font-medium 
+              {user.token && (
+                <button
+                  onClick={logOut}
+                  className="text-white text-xl bg-slate-600 w-[100px] rounded-xl font-medium 
                mx-auto my-6 py-3 transition ease-in-out delay-150
                 hover:-translate-y-1 hover:scale-80 hover:bg-slate-800 duration-300 ..."
-              >
-                Log Out
-              </button>
+                >
+                  Log Out
+                </button>
+              )}
             </div>
             <div className="my-6">
               <button className="text-white text-2xl group border-2 px-4 py-2 flex items-center hover:bg-red-800 hover:border-red-800">
@@ -54,6 +60,7 @@ export const Home = () => {
           <div></div>
         </div>
       </div>
+      <Community />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useUser } from "../context/AuthContext";
+import { UserAvatar } from "./UserAvatar";
 
 export const Navbar = () => {
   const { user, logout } = useUser();
@@ -30,7 +31,11 @@ export const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {user.username && <li>{user.username}</li>}
+          {user.username && (
+            <li className="my-[-17px] bg-white">
+              <UserAvatar />
+            </li>
+          )}
         </ul>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import background from "../assets/background.mp4";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/AuthContext";
 
 const token = sessionStorage.getItem("token");
@@ -53,10 +53,12 @@ export const Register = () => {
       />
       {user.token && user.token !== "" && user.token !== undefined ? (
         <div className=" flex justify-center py-[200px] absolute w-full h-full top-0 left-0 bg-gray-900/30 text-center max-w]">
-          <div className="w-[300px] text-center text-4xl">
-            You are logged in with this username{}
-            <span className="w-[100px]">{user.username}</span>
-            <button onClick={logout}>Log Out</button>
+          <div className="w-[300px] text-center text-4xl flex flex-col">
+            <p></p>You are logged in as{" "}
+            <span className="underline">{user.username}</span>
+            <button className="py-[100px]" onClick={logout}>
+              Log Out
+            </button>
           </div>
         </div>
       ) : (

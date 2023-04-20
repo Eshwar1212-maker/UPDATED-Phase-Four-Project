@@ -4,7 +4,7 @@ import { Tracks } from "../components/Tracks";
 export const BuyTracks = () => {
   return (
     <div>
-      <div className="text-center py-[200px]">
+      <div className="text-center py-[200px] text-black">
         <h1 className="text-2xl">Find Beats to purchase</h1>
         <div className="rounded-2xl items-center flex w-[700px] m-auto border-double border-4 border-slate-800">
           <input
